@@ -1,0 +1,19 @@
+.header-container {
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
+}
+.header-container > .header-font-styles {
+  padding: 2.7rem 1rem;
+  font-size: 1.75rem;
+  font-family: Baskerville;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  color: #3b3b3b;
+}
+@media only screen and (min-width: 1500px) {
+  .header-container > .header-font-styles {
+    padding: 2.7rem 0;
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+}

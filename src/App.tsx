@@ -5,6 +5,7 @@ import Header from './layout/header';
 import AllNews from './pages/all-news';
 import FavNews from './pages/fav-news';
 import ButtonComponent from './components/buttonComponent';
+import PaginationComponent from './components/paginationComponent';
 
 function App() {
   const location = useLocation();
@@ -13,7 +14,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Box sx={{ display: 'flex', gap: 0, justifyContent: 'center', p: '4rem 0' }}>
+      <Box>
         <Link to="/all">
           <ButtonComponent pathname="/all" currentpath={currentPath} text="All" />
         </Link>
@@ -27,7 +28,7 @@ function App() {
         <Route path="/all" element={<AllNews />} />
         <Route path="/my-faves" element={<FavNews />} />
       </Routes>
-      <div>pagination</div>
+      <PaginationComponent />
     </div>
   );
 }

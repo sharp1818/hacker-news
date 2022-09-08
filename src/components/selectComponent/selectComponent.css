@@ -1,0 +1,41 @@
+.select-container{
+    padding: 0rem 2rem 1.6rem 2rem;
+}
+
+.option-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.icon-container {
+    width: 1.5rem;
+    height: 1.5rem;
+    pointer-events: none 
+}
+
+.option-text-container{
+    pointer-events: none;
+}
+
+.JoySelect-button{
+    gap: 0.8rem;
+}
+.JoySelect-root{
+    width: 100%;
+}
+
+@media only screen and (min-width: 300px) {
+    .JoySelect-root{
+        width: 15rem;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .select-container {
+      padding: 0rem 0rem 2.375rem 0rem;
+      max-width: 90rem;
+      margin: 0 auto;
+    }
+}

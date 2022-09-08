@@ -1,4 +1,5 @@
 import Button from '@mui/joy/Button';
+import './buttonComponent.css';
 
 interface Location {
   currentpath: string;
@@ -11,8 +12,8 @@ function ButtonComponent({ currentpath, pathname, text }: Location) {
     <Button
       variant="outlined"
       color={currentpath === pathname ? 'primary' : 'neutral'}
-      sx={{ borderRadius: '2px', width: '6.125rem', height: '1.938rem' }}>
-      {text}
+      sx={{ borderRadius: '2px', width: '6.125rem', maxHeight: '1.938rem', minHeight: '1.938rem' }}>
+      <span className="text-container">{text}</span>
     </Button>
   );
 }

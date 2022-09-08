@@ -12,7 +12,7 @@ function App() {
   const currentPath = location.pathname;
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
       <Box>
         <Link to="/all">
@@ -24,7 +24,7 @@ function App() {
       </Box>
       <Routes>
         <Route path="/" element={<Navigate replace to="/all" />} />
-        <Route path="*" element={<Navigate replace to="/all" />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
         <Route path="/all" element={<AllNews />} />
         <Route path="/my-faves" element={<FavNews />} />
       </Routes>

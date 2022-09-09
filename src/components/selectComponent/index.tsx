@@ -1,19 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState, useRef, SetStateAction } from 'react';
+import { useRef, SetStateAction, useContext } from 'react';
 import Select, { selectClasses } from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 import IconButton from '@mui/joy/IconButton';
-import { GetSelectImage, SelectQuery } from '../../utils/helper';
+import { FilterContext } from '../../context/FilterContext';
+import { GetSelectImage } from '../../utils/helper';
 import './selectComponent.css';
 
 function SelectComponent() {
-  const [value, setValue] = useState('');
+  const { query, setQuery } = useContext(FilterContext);
   const action = useRef(null);
   const handleChange = (e: SetStateAction<string> | any) => {
-    setValue(e);
-    SelectQuery(e);
+    setQuery(e);
   };
 
   return (
@@ -21,13 +21,13 @@ function SelectComponent() {
       <Select
         size="sm"
         action={action}
-        value={value}
+        value={query}
         placeholder="Select your news"
         onChange={(e) => {
           handleChange(e);
         }}
         indicator={<KeyboardArrowDown />}
-        {...(value && {
+        {...(query && {
           endDecorator: (
             <IconButton
               size="sm"

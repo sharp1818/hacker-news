@@ -2,12 +2,12 @@ import Button from '@mui/joy/Button';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/joy/IconButton';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Box from '@mui/joy/Box';
 import Typography from '@mui/joy/Typography';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Link from '@mui/material/Link';
-import { AddFav } from '../../utils/helper';
+import { AddFav, CheckFav, TimeStamp } from '../../utils/helper';
 
 interface Hit {
   id: number | null;
@@ -47,7 +47,7 @@ function NewComponent({ id, created, title, url }: Hit) {
                 textAlign: 'start'
               }}
               startDecorator={<AccessTimeIcon />}>
-              {created} ago by author
+              {TimeStamp(created)} ago by author
             </Typography>
             <Typography
               sx={{
@@ -74,7 +74,11 @@ function NewComponent({ id, created, title, url }: Hit) {
           width: '4.25rem',
           opacity: '0.8'
         }}>
-        <FavoriteBorder sx={{ color: '#DD0031' }} />
+        {CheckFav(id) ? (
+          <FavoriteIcon sx={{ color: '#DD0031' }} />
+        ) : (
+          <FavoriteBorder sx={{ color: '#DD0031' }} />
+        )}
       </IconButton>
     </Stack>
   );

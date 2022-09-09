@@ -32,6 +32,12 @@
     }
 }
 
+@media only screen and (min-width: 900px) {
+    .select-container{
+        padding: 0rem 2rem 2.375rem 2rem;
+    }
+}
+
 @media only screen and (min-width: 1500px) {
     .select-container {
       padding: 0rem 0rem 2.375rem 0rem;

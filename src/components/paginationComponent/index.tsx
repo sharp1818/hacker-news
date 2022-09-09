@@ -2,9 +2,13 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './paginationComponent.css';
+import { CurrentPage } from '../../utils/helper';
 
 function PaginationComponent() {
   const matches = useMediaQuery('(min-width:500px)');
+  const handleChange = (e: any, value: number) => {
+    CurrentPage(value);
+  };
 
   return (
     <Stack
@@ -15,6 +19,7 @@ function PaginationComponent() {
       <Pagination
         size={matches ? 'medium' : 'small'}
         count={10}
+        onChange={handleChange}
         boundaryCount={matches ? 2 : 0}
         variant="outlined"
         color="primary"

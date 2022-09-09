@@ -1,0 +1,15 @@
+.news-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 0rem 2rem;
+}
+@media only screen and (min-width: 800px) {
+    .news-container{
+      max-width: 90rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.875rem 2.5rem;
+    }
+  }

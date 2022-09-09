@@ -5,7 +5,7 @@ import Option from '@mui/joy/Option';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 import IconButton from '@mui/joy/IconButton';
-import GetSelectImage from '../../utils/helper';
+import { GetSelectImage, SelectQuery } from '../../utils/helper';
 import './selectComponent.css';
 
 function SelectComponent() {
@@ -13,6 +13,7 @@ function SelectComponent() {
   const action = useRef(null);
   const handleChange = (e: SetStateAction<string> | any) => {
     setValue(e);
+    SelectQuery(e);
   };
 
   return (

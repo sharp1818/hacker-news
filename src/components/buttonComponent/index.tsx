@@ -12,7 +12,12 @@ function ButtonComponent({ currentpath, pathname, text }: Location) {
     <Button
       variant="outlined"
       color={currentpath === pathname ? 'primary' : 'neutral'}
-      sx={{ borderRadius: '2px', width: '6.125rem', maxHeight: '1.938rem', minHeight: '1.938rem' }}>
+      sx={{
+        borderRadius: '2px',
+        minWidth: '6.125rem',
+        maxHeight: '1.938rem',
+        minHeight: '1.938rem'
+      }}>
       <span className="text-container">{text}</span>
     </Button>
   );

@@ -20,8 +20,8 @@ function PaginationComponent() {
       sx={{ p: `${matches ? '6rem 0rem' : '6rem 1.8rem'}` }}>
       <Pagination
         size={matches ? 'medium' : 'small'}
-        count={pages}
-        page={page + 1}
+        count={Number(pages)}
+        page={Number(page) + 1}
         onChange={handleChange}
         boundaryCount={matches ? 2 : 0}
         variant="outlined"

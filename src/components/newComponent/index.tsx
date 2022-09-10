@@ -70,7 +70,7 @@ function NewComponent({ id, created, title, url }: Hit) {
         variant="soft"
         color="neutral"
         onClick={() => {
-          AddFav(id, favs, setFavs);
+          AddFav(id, created, favs, setFavs);
         }}
         disabled={(id === null || url === null) && true}
         sx={{

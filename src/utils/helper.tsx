@@ -13,15 +13,15 @@ export function GetSelectImage(image: string) {
   }
 }
 
-export function AddFav(id: number | any, recover: any, write: any) {
+export function AddFav(id: number | any, createAt: number | any, recover: any, write: any) {
   if (recover === null || recover === undefined) {
     const favs = [];
-    const fav = { id };
+    const fav = { id, createAt };
     favs.push(fav);
     write(favs);
   } else if (Object.values(recover).length === 0) {
     const favs = [];
-    const fav = { id };
+    const fav = { id, createAt };
     favs.push(fav);
     write(favs);
   } else if (recover.filter((favs: { id: any }) => favs.id === id).length === 1) {
@@ -29,7 +29,7 @@ export function AddFav(id: number | any, recover: any, write: any) {
     write(newdata);
   } else {
     const data = recover;
-    const fav = { id };
+    const fav = { id, createAt };
     data.push(fav);
     write(data);
   }

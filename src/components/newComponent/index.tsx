@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import { useContext } from 'react';
 import Button from '@mui/joy/Button';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/joy/IconButton';
@@ -7,6 +9,7 @@ import Box from '@mui/joy/Box';
 import Typography from '@mui/joy/Typography';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Link from '@mui/material/Link';
+import { FilterContext } from '../../context/FilterContext';
 import { AddFav, CheckFav, TimeStamp } from '../../utils/helper';
 
 interface Hit {
@@ -17,6 +20,7 @@ interface Hit {
 }
 
 function NewComponent({ id, created, title, url }: Hit) {
+  const { favs, setFavs } = useContext(FilterContext);
   return (
     <Stack
       direction="row"
@@ -66,7 +70,7 @@ function NewComponent({ id, created, title, url }: Hit) {
         variant="soft"
         color="neutral"
         onClick={() => {
-          AddFav(id);
+          AddFav(id, favs, setFavs);
         }}
         disabled={(id === null || url === null) && true}
         sx={{
@@ -74,7 +78,7 @@ function NewComponent({ id, created, title, url }: Hit) {
           width: '4.25rem',
           opacity: '0.8'
         }}>
-        {CheckFav(id) ? (
+        {CheckFav(id, favs) ? (
           <FavoriteIcon sx={{ color: '#DD0031' }} />
         ) : (
           <FavoriteBorder sx={{ color: '#DD0031' }} />

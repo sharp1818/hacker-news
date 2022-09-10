@@ -13,30 +13,36 @@ export function GetSelectImage(image: string) {
   }
 }
 
-export function AddFav(id: number | any) {
-  const recover = localStorage.getItem('favs');
-  if (recover === null || JSON.parse(recover).length === 0) {
+export function AddFav(id: number | any, recover: any, write: any) {
+  if (recover === null || recover === undefined) {
     const favs = [];
     const fav = { id };
     favs.push(fav);
-    localStorage.setItem('favs', JSON.stringify(favs));
-  } else if (JSON.parse(recover).filter((favs: { id: any }) => favs.id === id).length === 1) {
-    const newdata = JSON.parse(recover).filter((favs: { id: any }) => favs.id !== id);
-    localStorage.setItem('favs', JSON.stringify(newdata));
+    write(favs);
+  } else if (Object.values(recover).length === 0) {
+    const favs = [];
+    const fav = { id };
+    favs.push(fav);
+    write(favs);
+  } else if (recover.filter((favs: { id: any }) => favs.id === id).length === 1) {
+    const newdata = recover.filter((favs: { id: any }) => favs.id !== id);
+    write(newdata);
   } else {
-    const data = JSON.parse(recover);
+    const data = recover;
     const fav = { id };
     data.push(fav);
-    localStorage.setItem('favs', JSON.stringify(data));
+    write(data);
   }
 }
 
-export function CheckFav(id: number | any) {
-  const recover = localStorage.getItem('favs');
-  if (recover === null || JSON.parse(recover).length === 0) {
+export function CheckFav(id: number | any, recover: any) {
+  if (recover == null) {
     return false;
   }
-  if (JSON.parse(recover).filter((favs: { id: any }) => favs.id === id).length === 1) {
+  if (Object.values(recover).length === 0) {
+    return false;
+  }
+  if (recover.filter((favs: { id: any }) => favs.id === id).length === 1) {
     return true;
   }
   return false;

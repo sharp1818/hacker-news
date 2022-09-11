@@ -18,7 +18,7 @@ export function chunckArrayInGroups(arr: Array<number>, size: number) {
   let i;
   for (i = 0; i < arr.length; i += size) chunk.push(arr.slice(i, i + size));
   return chunk;
-};
+}
 
 export function AddFav(id: number | any, createAt: number | any, recover: any, write: any) {
   if (recover === null || recover === undefined) {

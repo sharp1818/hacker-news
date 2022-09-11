@@ -2,7 +2,6 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useContext } from 'react';
-import './paginationComponent.css';
 import { FilterContext } from '../../context/FilterContext';
 
 function PaginationComponent() {
@@ -17,17 +16,19 @@ function PaginationComponent() {
       spacing={0}
       direction="row"
       justifyContent="center"
-      sx={{ p: `${matches ? '6rem 0rem' : '6rem 1.8rem'}` }}>
-      <Pagination
-        size={matches ? 'medium' : 'small'}
-        count={Number(pages)}
-        page={Number(page) + 1}
-        onChange={handleChange}
-        boundaryCount={matches ? 2 : 0}
-        variant="outlined"
-        color="primary"
-        shape="rounded"
-      />
+      sx={{ p: `${matches ? '6rem 0rem 3rem 0rem' : '2rem 1.8rem 0rem 1.8rem'}` }}>
+      {Number(pages) !== 0 && (
+        <Pagination
+          size={matches ? 'medium' : 'small'}
+          count={Number(pages)}
+          page={Number(page) + 1}
+          onChange={handleChange}
+          boundaryCount={matches ? 2 : 0}
+          variant="outlined"
+          color="primary"
+          shape="rounded"
+        />
+      )}
     </Stack>
   );
 }

@@ -5,7 +5,6 @@ import Header from './layout/header';
 import AllNews from './pages/all-news';
 import FavNews from './pages/fav-news';
 import ButtonComponent from './components/buttonComponent';
-import PaginationComponent from './components/paginationComponent';
 
 function App() {
   const location = useLocation();
@@ -28,7 +27,6 @@ function App() {
         <Route path="/all" element={<AllNews />} />
         <Route path="/my-faves" element={<FavNews />} />
       </Routes>
-      <PaginationComponent />
     </div>
   );
 }

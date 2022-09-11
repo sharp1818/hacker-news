@@ -5,13 +5,13 @@ import NewComponent from '../../components/newComponent';
 import SelectComponent from '../../components/selectComponent';
 import './styles.css';
 import { FilterContext } from '../../context/FilterContext';
+import PaginationComponent from '../../components/paginationComponent/index';
 
 function AllNews() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const hitsPerPage = 8;
   const [data, setData] = useState({ hits: [] });
   const { page, setPages, query, setPage } = useContext(FilterContext);
-  console.log('xd', data);
   useEffect(() => {
     const fetchnews = async () => {
       const res = await axios.get(`${apiUrl}hitsPerPage=${hitsPerPage}&query=${query}&page=0`);
@@ -20,6 +20,9 @@ function AllNews() {
       setPage(0);
     };
     fetchnews();
+    return () => {
+      setPages(0);
+    };
   }, [query]);
   useEffect(() => {
     const fetchnews = async () => {
@@ -30,6 +33,9 @@ function AllNews() {
       setPages(res.data.nbPages);
     };
     fetchnews();
+    return () => {
+      setPages(0);
+    };
   }, [page]);
   return (
     <div>
@@ -45,6 +51,7 @@ function AllNews() {
           />
         ))}
       </div>
+      <PaginationComponent />
     </div>
   );
 }

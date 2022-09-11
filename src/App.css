@@ -1,11 +1,13 @@
 .app-container{
-  background-color: #fcfcfc;
+  height: 100%;
+  padding-bottom: 3em;
 }
 .app-container > .JoyBox-root{
   display: flex;
   justify-content: center;
   padding: 2rem 0;
 }
+
 @media only screen and (min-width: 1000px) {
   .app-container > .JoyBox-root{
     padding: 4rem 0;

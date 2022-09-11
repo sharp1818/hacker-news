@@ -20,9 +20,6 @@ function AllNews() {
       setPage(0);
     };
     fetchnews();
-    return () => {
-      setPages(0);
-    };
   }, [query]);
   useEffect(() => {
     const fetchnews = async () => {
@@ -33,9 +30,6 @@ function AllNews() {
       setPages(res.data.nbPages);
     };
     fetchnews();
-    return () => {
-      setPages(0);
-    };
   }, [page]);
   return (
     <div>

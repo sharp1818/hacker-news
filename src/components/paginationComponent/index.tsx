@@ -10,25 +10,22 @@ function PaginationComponent() {
   const handleChange = (e: any, value: number) => {
     setPage(value - 1);
   };
-
   return (
     <Stack
       spacing={0}
       direction="row"
       justifyContent="center"
       sx={{ p: `${matches ? '6rem 0rem 3rem 0rem' : '2rem 1.8rem 0rem 1.8rem'}` }}>
-      {Number(pages) !== 0 && (
-        <Pagination
-          size={matches ? 'medium' : 'small'}
-          count={Number(pages)}
-          page={Number(page) + 1}
-          onChange={handleChange}
-          boundaryCount={matches ? 2 : 0}
-          variant="outlined"
-          color="primary"
-          shape="rounded"
-        />
-      )}
+      <Pagination
+        size={matches ? 'medium' : 'small'}
+        count={Number(pages)}
+        page={Number(page) + 1}
+        onChange={handleChange}
+        boundaryCount={matches ? 2 : 0}
+        variant="outlined"
+        color="primary"
+        shape="rounded"
+      />
     </Stack>
   );
 }

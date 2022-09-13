@@ -22,7 +22,7 @@ function FavNews() {
 
   const fetchData = () => {
     const createAt: Array<number> = favs.map((favs: { createAt: any }) => favs.createAt);
-    const newCreateAt = chunckArrayInGroups(createAt, 8);
+    const newCreateAt = chunckArrayInGroups(createAt, 10);
     if (newCreateAt.length === digit + 1) {
       setHasMore(false);
     } else {
@@ -32,7 +32,7 @@ function FavNews() {
   useEffect(() => {
     const fetchnews = async () => {
       const createAt: Array<number> = favs.map((favs: { createAt: any }) => favs.createAt);
-      const newCreateAt = chunckArrayInGroups(createAt, 8);
+      const newCreateAt = chunckArrayInGroups(createAt, 10);
       const promises = newCreateAt[digit].map((createAt: any) =>
         axios.get(`${apiUrl}hitsPerPage=${hitsPerPage}&numericFilters=created_at_i=${createAt}`)
       );

@@ -17,6 +17,7 @@ function AllNews() {
       const res = await axios.get(`${apiUrl}hitsPerPage=${hitsPerPage}&query=${query}&page=0`);
       setData(res.data);
       setPages(res.data.nbPages);
+      console.log(res.data);
       setPage(0);
     };
     fetchnews();
@@ -40,7 +41,7 @@ function AllNews() {
             key={hit['objectID']}
             id={hit['objectID']}
             created={hit['created_at_i']}
-            title={hit['story_title']}
+            title={hit['story_title'] === null ? hit['title'] : hit['story_title']}
             url={hit['story_url']}
           />
         ))}
